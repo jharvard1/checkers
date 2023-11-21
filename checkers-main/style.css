@@ -1,0 +1,198 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  --board-black-square: rgba(0, 0, 0, 0.8);
+  --board-red-square: rgba(255, 182, 193, 0.7); /* Pink color */
+  --chooseable-hover-glow: deepskyblue; /* Blue color */
+  --dark-brown: rgb(22, 8, 2);
+  --legal-jump-move-indicator: deepskyblue; /* Blue color */
+  --legal-regular-move-indicator: rgb(255, 182, 193); /* Pink color */
+  --light-tan: rgb(210, 175, 139);
+  --pawn-black: rgb(109, 111, 115);
+  --pawn-red: rgb(255, 182, 193); /* Pink color */
+  --window-background-color: rgb(135, 206, 250); /* Light Sky Blue color */
+}
+
+.flex-column-center {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flex-center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  background-color: var(--window-background-color);
+  cursor: default;
+  font-family: 'Londrina Solid', sans-serif;
+  height: 100vh;
+  overscroll-behavior: none;
+  position: relative;
+  z-index: 1;
+}
+
+body::before {
+  background: url('./assets/tabletop.jpeg');
+  background-size: cover;
+  content: '';
+  height: 100%;
+  left: 0;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+#console, button {
+  animation: 2s ease-in fade-in;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+header {
+  color: var(--dark-brown);
+  font-size: 9vmin;
+  font-weight: bold;
+  margin-top: -2vmin;
+  text-shadow: 0 0 1.5vmin var(--light-tan);
+}
+
+header > span {
+  letter-spacing: 3vmin;
+}
+
+#console {
+  color: var(--light-tan);
+}
+
+#game-state-message {
+  font-size: 3.5vmin;
+  font-weight: 100;
+  letter-spacing: 0.1vmin;
+  margin-top: 4vmin;
+  text-shadow: 0 0 1vmin var(--dark-brown);
+}
+
+.player-label {
+  font-size: 2.5vmin;
+  font-weight: 100;
+  letter-spacing: 0.1vmin;
+  text-align: center;
+}
+
+.player-name {
+  font-weight: 600;
+}
+
+.player-pieces {
+  font-size: 7.5vmin;
+  font-weight: 600;
+  text-shadow: 0 0 1vmin var(--dark-brown);
+}
+
+#board {
+  background-color: white;
+  box-shadow: 0 0 3vmin 1vmin black;
+  display: grid;
+  gap: 0.2vmin;
+  grid-template: repeat(8, 7.3vmin) / repeat(8, 7.3vmin);
+  margin: 4vmin 6vw;
+  padding: 0.4vmin;
+  transform: rotate(2deg);
+  animation: 2s ease-in-out spin-in;
+}
+
+@keyframes spin-in {
+  0% {
+    transform: rotate(361deg) scale(0);
+  }
+  100% {
+    transform: rotate(2deg) scale(1);
+  }
+}
+
+.black {
+  background-color: var(--board-black-square);
+}
+
+.red {
+  background-color: var(--board-red-square);
+}
+
+.chooseable {
+  cursor: pointer;
+  transition: 0.05s ease-in-out;
+}  
+
+.chooseable:hover {
+  box-shadow: 0 0 1vmin var(--chooseable-hover-glow);
+}    
+
+.chooseable:active {
+  box-shadow: 0 0 2vmin var(--chooseable-hover-glow);
+  transform: scale(0.925);
+}
+
+.legal-regular-move {
+  border: 0.75vmin double var(--legal-regular-move-indicator);
+}
+
+.legal-jump-move {
+  animation: 0.75s infinite jump-move-blink;
+}
+
+@keyframes jump-move-blink {
+  0% {
+    border: 1vmin double var(--legal-jump-move-indicator);
+  }
+  100% {
+    border: none;
+  }
+}
+
+.legal-regular-move:hover, .legal-jump-move:hover {
+  transform: scale(0.925);
+}    
+
+button {
+  background-color: deepskyblue; /* Blue color */
+  border: none;
+  border-radius: 1.5vmin;
+  color: pink; /* Pink color */
+  cursor: pointer;
+  font-family: 'Londrina Solid', sans-serif;
+  font-size: 2vmin;
+  font-weight: 100;
+  letter-spacing: 0.1vmin;
+  margin: 3vmin 2.5vmin 0;
+  padding: 1.5vmin;
+  transition: 0.1s ease-in-out;
+  width: 27vmin;
+}
+
+button:hover {
+  background-color: royalblue; /* Darker blue color */
+  color: lightpink; /* Lighter pink color */
+  font-weight: 600;
+  transform: scale(1.1);
+}
+
+button:active {
+  transform: scale(1);
+}

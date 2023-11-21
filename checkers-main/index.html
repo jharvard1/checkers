@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+  <title>Checkers</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;400&display=swap" rel="stylesheet">
+
+  <link rel='stylesheet' href='./style.css'/>
+  <script defer src='./main.js'></script>
+</head>
+
+<body class='flex-column-center'>
+  <header><span>CHECKER</span>S</header>
+  <section id='console' class='flex-column-center'>
+    <p id='game-state-message'></p>
+    <div id='board-frame' class='flex-center'>
+      <div class='player-info flex-column-center'>
+        <p class='player-label'>
+          <span class='player-name'>Player 1</span>’s<br/>
+          remaining<br/>pieces
+        </p>
+        <p
+          id='player-1-pieces'
+          class='player-pieces'
+          style='color: var(--pawn-red)'
+        ></p>
+      </div>
+      <section id='board'>
+        <div class='black'></div>
+        <div class='red' id='71'></div>
+        <div class='black'></div>
+        <div class='red' id='73'></div>
+        <div class='black'></div>
+        <div class='red' id='75'></div>
+        <div class='black'></div>
+        <div class='red' id='77'></div>
+        
+        <div class='red' id='60'></div>
+        <div class='black'></div>
+        <div class='red' id='62'></div>
+        <div class='black'></div>
+        <div class='red' id='64'></div>
+        <div class='black'></div>
+        <div class='red' id='66'></div>
+        <div class='black'></div>
+        
+        <div class='black'></div>
+        <div class='red' id='51'></div>
+        <div class='black'></div>
+        <div class='red' id='53'></div>
+        <div class='black'></div>
+        <div class='red' id='55'></div>
+        <div class='black'></div>
+        <div class='red' id='57'></div>
+        
+        <div class='red' id='40'></div>
+        <div class='black'></div>
+        <div class='red' id='42'></div>
+        <div class='black'></div>
+        <div class='red' id='44'></div>
+        <div class='black'></div>
+        <div class='red' id='46'></div>
+        <div class='black'></div>
+
+        <div class='black'></div>
+        <div class='red' id='31'></div>
+        <div class='black'></div>
+        <div class='red' id='33'></div>
+        <div class='black'></div>
+        <div class='red' id='35'></div>
+        <div class='black'></div>
+        <div class='red' id='37'></div>
+        
+        <div class='red' id='20'></div>
+        <div class='black'></div>
+        <div class='red' id='22'></div>
+        <div class='black'></div>
+        <div class='red' id='24'></div>
+        <div class='black'></div>
+        <div class='red' id='26'></div>
+        <div class='black'></div>
+
+        <div class='black'></div>
+        <div class='red' id='11'></div>
+        <div class='black'></div>
+        <div class='red' id='13'></div>
+        <div class='black'></div>
+        <div class='red' id='15'></div>
+        <div class='black'></div>
+        <div class='red' id='17'></div>
+        
+        <div class='red' id='00'></div>
+        <div class='black'></div>
+        <div class='red' id='02'></div>
+        <div class='black'></div>
+        <div class='red' id='04'></div>
+        <div class='black'></div>
+        <div class='red' id='06'></div>
+        <div class='black'></div>
+      </section>
+      <div class='player-info flex-column-center'>
+        <p class='player-label'>
+          <span class='player-name'>Player 2</span>’s<br/>
+          remaining<br/>pieces
+        </p>
+        <p
+          id='player-2-pieces'
+          class='player-pieces'
+          style='color: var(--pawn-black)'
+        ></p>
+      </div>
+    </div>
+  </section>
+  <div>
+    <button id='reset-game-button'>RESET GAME</button>
+  </div>
+</body>
+
+</html>
